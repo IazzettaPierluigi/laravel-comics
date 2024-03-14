@@ -15,30 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
-    $greeting = 'Hello World';
-
-    $data = [
-        [
-            'name' => 'Fabio'
-        ],
-        [
-            'name' => 'Mario'
-        ],
-        [
-            'name' => 'Sara'
-        ],
-        [
-            'name' => 'Alex'
-        ],
-    ];
 
 
-    return view('welcome', compact('data', 'greeting'));
+
+    return view('welcome');
 })->name('homePage');
 
-Route::get('/about', function () {
+Route::get('/comics', function () {
 
-    $lorem = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aut excepturi deleniti cupiditate deserunt sint reprehenderit quibusdam tempore voluptas quis, nisi id voluptatibus quaerat repellat doloremque eum eos laborum eaque.';
+    $currentComics = config('comics');
 
-    return view('about', compact('lorem'));
-})->name('aboutPage');
+    return view('comics', compact('currentComics'));
+})->name('comicsPage');
